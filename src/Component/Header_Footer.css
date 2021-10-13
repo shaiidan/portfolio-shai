@@ -1,0 +1,18 @@
+@import '../DarkMode.css';
+
+
+.Header-navbar{
+    background-color: var( --bg-hf-color);
+    font-weight: bold;
+}
+
+
+.Footer {
+    text-align:center;
+    background-color:var( --bg-hf-color);
+    color: var(--text-color);
+}
+
+.Footer-link {
+    margin:'0 auto'
+}

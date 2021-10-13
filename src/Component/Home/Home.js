@@ -1,32 +1,28 @@
-import React from 'react';
-import Logo from '../../Images/logo.svg';
+import Header from '../Header';
 import './Home.css';
+import Footer from '../Footer';
+import LinksBar from '../LinksBar';
+import { useSelector } from 'react-redux';
+import { selectIsDarkMode } from '../../Store/darkModeSlice';
 
-class Home extends React.Component{
 
-  // show 
-  render() {
-    return (
-      <>
-          <div className="App">
-            <header className="App-header">
-            <img src={Logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-            </header>
-          </div>
-      </>
+const Home = () =>{
+  const isDarkMode = useSelector(selectIsDarkMode);
+
+  return (
+    <>
+      <Header />
+        <div className="Home" data-theme={isDarkMode ? "dark" : "light"}>
+          <header className="Home-header">
+            <h1>Shai Idan</h1>
+            <img src="Images/shai-photo.png" className="Home-logo" alt="logo" />
+            <p>Software Engineer</p>
+            <LinksBar color={isDarkMode ?'#282c34' : '#61dafb'} size='50px' />
+          </header>
+        </div>
+      <Footer/>
+    </>
     );
   }
-}
 
 export default Home;
