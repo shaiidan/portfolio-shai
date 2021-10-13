@@ -3,23 +3,38 @@ import { createSlice } from "@reduxjs/toolkit";
 export const darkModeSlice = createSlice({
     name:"darkMode",
     initialState: {
-        isDarkMode: getDarkMode()
+        isDarkMode: loadFromLocalStorage()
     },
     reducers:{
         changeMode: (state) =>{
             state.isDarkMode = !state.isDarkMode;
-            localStorage.setItem('isDarkMode',state.isDarkMode);
+            saveToLocalStorage(state.isDarkMode);
         }
     }
 });
 
-function getDarkMode(){
-    const isDarkMode = localStorage.getItem('isDarkMode');
-    console.log(isDarkMode);
-    if(isDarkMode === null){
+function loadFromLocalStorage(){
+    try {
+        const isDarkMode = localStorage.getItem('isDarkMode');
+        if(isDarkMode === null){
+            return false;
+        }
+        return isDarkMode === 'true'; 
+    }
+    catch(e){
+        console.warn(e);
         return false;
     }
-    return isDarkMode;
+    
+}
+
+function saveToLocalStorage(data){
+    try {
+        localStorage.setItem('isDarkMode',data);
+    }
+    catch(e){
+        console.warn(e);
+    }
 }
 
 export const selectIsDarkMode = (state) => state.darkMode.isDarkMode;
