@@ -9,13 +9,10 @@ const Footer = () => {
     
     return (
         <>
-          <div className='Footer' data-theme={isDarkMode ? "dark" : "light"}>
-                <br/>
+          <div className='Footer' data-theme={isDarkMode ? "dark" : "light"}>         
                 <h3 >Shai Idan</h3> 
-                <div className='Footer-link' >
-                    <LinksBar color='white' />
-                </div>
-                <br/>
+                 <LinksBar color={'white'} />
+
             </div>
         </>
     );

@@ -1,88 +1,102 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
 import Footer from '../Footer';
 import Header from '../Header';
-
-
-const GITHUB_API = 'https://api.github.com/users/shaiidan/repos';
+import { connect } from 'react-redux';
+import Paginate from 'react-paginate';
+import getAllRepos from './githubAPI';
+import './Projects.css';
+import {AiFillGithub as IconGithub} from 'react-icons/ai'
 
 class Projects extends React.Component{
 
   constructor(props) {
     super(props)
     this.state = {
-      repos: []
+      repos: [],
+      offset:0,
+      perPage:1,
+      currentPage:0
     }
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  async fetchRepos(){
-    const response = await fetch(GITHUB_API);
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      return new Error(message);
-    }
-    const repos = await response.json();
-    return repos;
-  }
-
-  async fetchRepoLanguages(repo_name){
-    const response = await  fetch(`https://api.github.com/repos/shaiidan/${repo_name}/languages`);
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      return new Error(message);
-    }
-    const languages = await response.json();
-    return languages;
-  }
-
-  async getAllRepos(){
-    const reposNew = [];
-    const repos = await this.fetchRepos();
-    if(typeof repos === Error){
-      return null; 
-    }
-
-    for(const repo of repos){
-      let repo_new = {repo_name:repo.name,html_url:repo.html_url}; 
-      const languages = await this.fetchRepoLanguages(repo.name);
-      repo_new = {reposNew, languages:languages};
-      reposNew.push(repo_new);
-    }
-    
-    return reposNew;
-  }
-
+ 
   async componentDidMount() {
-    const repos = await this.getAllRepos();
-    if(repos !== null){
-      this.setState({repos:repos});
-    }
+    await this.receivedRepos();
+  }
+
+  
+  async receivedRepos(){
+    const data = await getAllRepos();
+    const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+    const postRepos = slice.map(function(repo, index) {
+      return ( 
+      <div className='repo' key={index}  >
+         <h4>{repo.repo_name}</h4>
+          <div className='repo-body'>
+            <p>{repo.description}</p>
+            <div className='repo-link'>
+              <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
+            </div>
+          </div>
+      </div>
+      );
+    });
+    this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+        postRepos
+    })
+  }
+
+  handlePageClick(e){
+    const selectedPage = e.selected ;
+    const offset = selectedPage * this.state.perPage;
+  
+    this.setState(
+      {
+        currentPage: selectedPage,
+        offset: offset 
+      }, () => { this.receivedRepos()}
+    );
   }
 
     render(){
+
+      const isDarkMode = this.props.isDarkMode;
+
         return(
           <>
             <Header />
-            <p>sss{ console.log(this.state.repos)}</p>
-            <Carousel variant="dark">
-              <Carousel.Item>
-                <Carousel.Caption>
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <Carousel.Caption>
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
+            <div className='Projects' data-theme={isDarkMode ? "dark" : "light"}>
+              <br/>
+              <h1>My projects</h1>
+              {this.state.postRepos !== undefined ?
+                <div className="Pages">
+                {this.state.postRepos}
+                <Paginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={10}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"} />
+                </div>
+                : null 
+              }
+              <br/>
+            </div>
             <Footer />
           </>
         );
     }
 }
 
-export default Projects;
+const storeToProps = (state) => {return {isDarkMode:state.darkMode.isDarkMode}};
+
+export default connect(storeToProps)(Projects);
   

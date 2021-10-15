@@ -1,8 +1,9 @@
 .Row { 
     white-space: nowrap;
     overflow-x: auto;
+
 }
 .Column {
     display: inline-block;
-    margin-left: 20px; 
+    margin-left: 0.5rem; 
 }

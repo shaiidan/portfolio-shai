@@ -17,7 +17,9 @@ const Home = () =>{
             <h1>Shai Idan</h1>
             <img src="Images/shai-photo.png" className="Home-logo" alt="logo" />
             <p>Software Engineer</p>
-            <LinksBar color={isDarkMode ?'#282c34' : '#61dafb'} size='50px' />
+            <div className='Home-link'>
+              <LinksBar color={isDarkMode ?'#282c34' : '#61dafb'} size='50px' />
+            </div>
           </header>
         </div>
       <Footer/>

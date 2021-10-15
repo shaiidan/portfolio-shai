@@ -1,18 +1,24 @@
 @import '../DarkMode.css';
 
+.Header {
+    min-height: 20vh;
+}
 
 .Header-navbar{
-    background-color: var( --bg-hf-color);
     font-weight: bold;
+    background-color: var( --bg-hf-color);
 }
+
 
 
 .Footer {
     text-align:center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 10vh;
     background-color:var( --bg-hf-color);
     color: var(--text-color);
 }
-
-.Footer-link {
-    margin:'0 auto'
+.Footer h3 {
+    padding-left: 1rem;
 }

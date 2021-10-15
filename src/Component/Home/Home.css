@@ -4,13 +4,6 @@
   text-align: center;
 }
 
-.Home-logo {
-  width: 350px;
-  height: 370px;
-  pointer-events: none;
-  border-radius: 50%;
-}
-
 .Home-header {
   background-color:  var(--bg-body-color);
   min-height: 80vh;
@@ -18,16 +11,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color:  var(--text-color);
   font-family: Arial, Helvetica, sans-serif;
 }
 .Home-header h1 {
-  font-size:12vmin;
+  font-size:calc(50px + 3vmin);
   font-family: 'Brush Script MT', cursive;
 }
 
-.Home-header p {
-  padding-top: 10px;
+.Home-logo {
+  width: calc(200px + 3vmin);
+  height: calc(210px + 3vmin);
+  pointer-events: none;
+  border-radius: 50%;
 }
 
+.Home-header p {
+  padding: 1rem;
+  font-size:calc(10px + 2vmin);
+}
+
+.Home-link{
+  padding-bottom: 1rem; 
+}
