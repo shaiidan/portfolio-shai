@@ -3,7 +3,6 @@ import './LinksBar.css'
 
 
 const LinksBar = (props) => {
-
     let color = 'black', size='30px';
     if('color' in props){
         color = props.color;
