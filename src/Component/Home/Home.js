@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import LinksBar from '../LinksBar';
 import { useSelector } from 'react-redux';
 import { selectIsDarkMode } from '../../Store/darkModeSlice';
-
+import About from './About';
 
 const Home = () =>{
   const isDarkMode = useSelector(selectIsDarkMode);
@@ -18,9 +18,11 @@ const Home = () =>{
             <img src="Images/shai-photo.png" className="Home-logo" alt="logo" />
             <p>Software Engineer</p>
             <div className='Home-link'>
-              <LinksBar color={isDarkMode ? '#61dafb':'#282c34'} size='50px' />
+              <LinksBar type={isDarkMode ? "dark" : "light"} color={isDarkMode ? '#61dafb':'#282c34'} size='50px' />
             </div>
           </header>
+          
+          <About />
         </div>
       <Footer/>
     </>

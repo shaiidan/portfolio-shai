@@ -6,15 +6,15 @@ import Paginate from 'react-paginate';
 import getAllRepos from './githubAPI';
 import './Projects.css';
 import {AiFillGithub as IconGithub} from 'react-icons/ai'
+import MultiColorProgressBar from './MultiColorProgressBar';
 
 class Projects extends React.Component{
-
   constructor(props) {
     super(props)
     this.state = {
       repos: [],
       offset:0,
-      perPage:1,
+      perPage:2,
       currentPage:0
     }
     this.handlePageClick = this.handlePageClick.bind(this);
@@ -22,28 +22,45 @@ class Projects extends React.Component{
 
  
   async componentDidMount() {
-    await this.receivedRepos();
+    const repos = await getAllRepos();
+    this.setState({repos});
+    this.receivedRepos();
   }
 
   
-  async receivedRepos(){
-    const data = await getAllRepos();
-    const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+  receivedRepos(){
+
+    if(this.state.repos === undefined || this.state.repos === null || !Array.isArray(this.state.repos)){
+      return;
+    }
+
+    const slice = this.state.repos.slice(this.state.offset, this.state.offset + this.state.perPage)
+    
     const postRepos = slice.map(function(repo, index) {
       return ( 
+        <>
       <div className='repo' key={index}  >
-         <h4>{repo.repo_name}</h4>
-          <div className='repo-body'>
+         <div className='repo-header'>
+            <h4>{repo.repo_name}</h4>
+         </div>
+         <div className='repo-body'>
             <p>{repo.description}</p>
+            <div className='repo-languages'>
+              <MultiColorProgressBar readings={repo.languages} />
+            </div>
             <div className='repo-link'>
               <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
             </div>
-          </div>
+            
+         </div>        
       </div>
+      <br/>
+      </>
       );
     });
+    
     this.setState({
-        pageCount: Math.ceil(data.length / this.state.perPage),
+        pageCount: Math.ceil(this.state.repos.length / this.state.perPage),
         postRepos
     })
   }
@@ -68,9 +85,8 @@ class Projects extends React.Component{
           <>
             <Header />
             <div className='Projects' data-theme={isDarkMode ? "dark" : "light"}>
-              <br/>
-              <h1>My projects</h1>
-              {this.state.postRepos !== undefined ?
+                <h1>My projects</h1>
+              {this.state.postRepos !== undefined && this.state.postRepos !== null && this.state.postRepos.length !== 0 ?
                 <div className="Pages">
                 {this.state.postRepos}
                 <Paginate
@@ -86,9 +102,9 @@ class Projects extends React.Component{
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"} />
                 </div>
-                : null 
+                : <div> Loading....</div> 
               }
-              <br/>
+              
             </div>
             <Footer />
           </>
@@ -99,4 +115,6 @@ class Projects extends React.Component{
 const storeToProps = (state) => {return {isDarkMode:state.darkMode.isDarkMode}};
 
 export default connect(storeToProps)(Projects);
-  
+
+
+

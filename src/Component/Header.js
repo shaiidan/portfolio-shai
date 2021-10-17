@@ -19,10 +19,12 @@ const Header = () => {
         <>
             <Navbar sticky='top' className='Header-navbar' variant='dark' data-theme={isDarkMode ? "dark" : "light"}>
              <Container >
-                <Nav activeKey={window.location.pathname} className="ml-auto">
+                <Nav activeKey={window.location.pathname} >
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/Projects">Projects</Nav.Link>
-                  <Nav.Link href="/About">About</Nav.Link>
+                  <Nav.Link 
+                    active={window.location.href.toLowerCase().toString().includes('/Home#about'.toLowerCase())} 
+                    href="/Home#About">About</Nav.Link>
                 </Nav>
                 <Nav className="ms-auto">
                 <Nav.Item style={{floaRright:'auto'}}>

@@ -11,7 +11,7 @@ const Footer = () => {
         <>
           <div className='Footer' data-theme={isDarkMode ? "dark" : "light"}>         
                 <h3 >Shai Idan</h3> 
-                 <LinksBar color={'white'} />
+                 <LinksBar  type={isDarkMode ? "dark" : "light"} color={'white'} />
 
             </div>
         </>

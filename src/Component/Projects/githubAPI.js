@@ -34,7 +34,7 @@ const getAllRepos = async () => {
         html_url: repo.html_url,
       }; 
       const languages = await fetchRepoLanguages(repo.name);
-      repoNew = {...repoNew, languages:languages};
+      repoNew = {...repoNew, languages:getLanguagesForProgressBar(languages)};
       reposNew.push(repoNew);
     }
     
@@ -42,3 +42,31 @@ const getAllRepos = async () => {
 }
 
 export default getAllRepos;
+
+const getLanguagesForProgressBar = (languages) => {
+  let languagesArray = [];
+  let languagesForProgressBar = [];
+  for(var lan in languages){
+    languagesArray.push([lan,languages[lan]])
+  }
+  const sumLanguagesPercent = languagesArray.map((item)=>{return item[1]}).reduce((a,b)=>a+b,0);
+  languagesArray.forEach((language) =>{
+    languagesForProgressBar.push({
+      name:language[0],
+      value:Number((language[1]/sumLanguagesPercent) * 100).toFixed(1),
+      color:COLORS[language[0]] || COLORS['default']
+    })
+  })
+  console.log(languagesForProgressBar);
+  return languagesForProgressBar;
+}
+
+const COLORS = {
+  JavaScript: '#fffd12',
+  Shell: '#92ff12',
+  Solidity: '#b116fc',
+  HTML: '#ff0000',
+  CSS: '#121efc',
+  Java: '#552809',
+  default:'#ffffff'
+}

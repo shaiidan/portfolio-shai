@@ -15,24 +15,46 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .Home-header h1 {
-  font-size:calc(50px + 3vmin);
+  font-size:calc(80px + 3vmin);
   font-family: 'Brush Script MT', cursive;
 }
 
 .Home-logo {
-  width: calc(200px + 3vmin);
-  height: calc(210px + 3vmin);
+  width: calc(250px + 3vmin);
+  height: calc(260px + 3vmin);
   pointer-events: none;
   border-radius: 50%;
 }
 
 .Home-header p {
+  text-align: center;
   padding: 1rem;
-  font-size:calc(10px + 2vmin);
+  font-size:calc(15px + 2vmin);
 }
 
 .Home-link{
   padding-bottom: 1rem; 
 }
 
+/* About */
 
+.About{
+  padding-top: 8rem;
+  min-height: 80vh;
+  background-color:  var(--bg-body-color);
+  color:  var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.About-header h1{
+  font-size: 50px;
+  text-shadow: 5px 5px 5px var( --bg-hf-color);
+  font-weight: bold;
+}
+
+.About-body{
+  text-align:start;
+  font-size: 25px;
+  font-style:italic;
+  padding: 0 10% 0 10%;
+}
