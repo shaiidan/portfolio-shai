@@ -1,7 +1,8 @@
-import LinksBar from './LinksBar';
+import LinksBar from '../Templetes/LinksBar';
 import './Header_Footer.css';
 import { useSelector } from 'react-redux';
-import { selectIsDarkMode } from '../Store/darkModeSlice';
+import { selectIsDarkMode } from '../../Store/darkModeSlice';
+
 
 const Footer = () => {
 
@@ -11,7 +12,7 @@ const Footer = () => {
         <>
           <div className='Footer' data-theme={isDarkMode ? "dark" : "light"}>         
                 <h3 >Shai Idan</h3> 
-                 <LinksBar  type={isDarkMode ? "dark" : "light"} color={'white'} />
+                 <LinksBar  isDarkMode={isDarkMode}  />
 
             </div>
         </>

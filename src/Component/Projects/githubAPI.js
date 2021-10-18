@@ -57,12 +57,11 @@ const getLanguagesForProgressBar = (languages) => {
       color:COLORS[language[0]] || COLORS['default']
     })
   })
-  console.log(languagesForProgressBar);
   return languagesForProgressBar;
 }
 
 const COLORS = {
-  JavaScript: '#fffd12',
+  JavaScript: '#F7DF1E',
   Shell: '#92ff12',
   Solidity: '#b116fc',
   HTML: '#ff0000',

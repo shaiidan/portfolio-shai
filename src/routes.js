@@ -19,7 +19,7 @@ export default (
                         return(
                             <>
                                 <div className='route-not-found'>
-                                   <h1>Not Fount !!</h1> <br/>
+                                   <h1>Not Fount 404 !!</h1> <br/>
                                    <Link to="/">Go to Home</Link>
                                 </div>
                             </>

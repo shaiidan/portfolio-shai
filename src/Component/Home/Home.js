@@ -1,10 +1,10 @@
-import Header from '../Header';
-import './Home.css';
-import Footer from '../Footer';
-import LinksBar from '../LinksBar';
+import Header from '../Templetes/Header';
+import Footer from '../Templetes/Footer';
+import LinksBar from '../Templetes/LinksBar';
 import { useSelector } from 'react-redux';
 import { selectIsDarkMode } from '../../Store/darkModeSlice';
 import About from './About';
+import './Home.css';
 
 const Home = () =>{
   const isDarkMode = useSelector(selectIsDarkMode);
@@ -18,7 +18,7 @@ const Home = () =>{
             <img src="Images/shai-photo.png" className="Home-logo" alt="logo" />
             <p>Software Engineer</p>
             <div className='Home-link'>
-              <LinksBar type={isDarkMode ? "dark" : "light"} color={isDarkMode ? '#61dafb':'#282c34'} size='50px' />
+              <LinksBar isDarkMode={isDarkMode}  size='50px' />
             </div>
           </header>
           

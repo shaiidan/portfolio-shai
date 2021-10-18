@@ -1,4 +1,4 @@
-@import '../DarkMode.css';
+@import '../../DarkMode/DarkMode.css';
 
 .Header-navbar{
     min-height: 10vh;
@@ -7,6 +7,16 @@
     font-weight: bold;
     background-color: var( --bg-hf-color);
 }
+
+.Header-navbar a {
+    color: var(--text-color) !important;
+}
+
+a.nav-link.active  {
+    color: var(--link-color) !important;
+}
+
+
 
 .Footer {
     text-align:center;

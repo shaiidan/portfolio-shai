@@ -1,20 +1,23 @@
+@import '../../DarkMode/DarkMode.css';
+
+
 .Projects{  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color:var( --bg-body-color);
   min-height: 80vh;
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 
 .Projects h1 {
   text-align: center;
   font-weight: bold;
-  padding: 1rem;
+  padding: 5rem 0 2rem 0;
   font-size: 50px;
-  color: var(--text-color);
-
-  text-shadow: 5px 5px 5px var( --bg-hf-color);
+  color: var(--link-color);
+  text-shadow: 3px 3px 3px var( --bg-hf-color);
 }
 
 .Pages{
@@ -25,25 +28,35 @@
   align-items: center;
 }
 
-/* repo */
+/* repos */
+.repos{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
 
-.repo{ 
+.repo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem;
   text-align: center;
-  margin: 0 auto; 
-  min-width: 60vw;
-  max-width: 60vw;
+  min-width: 70vmin;
+  max-width: 70vmin;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 var( --bg-hf-color);
+  box-shadow: 0 2px 3px 0 var( --bg-hf-color);
   transition: 0.3s;
   background-color: var( --bg-hf-color);
   color: var(--text-color);
+  
 }
 
 .repo-header {
   border-bottom: 3px solid var(--bg-body-color);
   font-size: 25px;
-  padding-top: 10px;
-  text-shadow: 2px 2px 2px var( --bg-body-color);
+  padding: 10px;
+  text-shadow: 3px 2px 3px var( --bg-body-color);
   font-weight: bold;
 }
 
@@ -57,9 +70,13 @@
   align-items: center;
 }
 
+.repo-link{
+  display: flex;
+  justify-content: space-around;
+}
 
 .repo-link button {
-  margin: 0 auto;
+
   width: 50%;
   border-radius: 1rem;
   background-color: var( --bg-body-color);
@@ -70,7 +87,7 @@
 }
 
 .repo-icon{
-  color: var( --bg-hf-color);
+  color: var( --link-color);
 }
 
 /* pagination */
@@ -82,16 +99,22 @@
   align-items: center;
   list-style: none;
   outline: none;
-  color: var(--text-color);
+  color: var(--link-color);
+  font-weight: bold;
+  font-size: 18px;
 }
   .pagination > .active > a{
     background-color: var(--bg-hf-color);
     border-color: var(--bg-hf-color);
   }
+  .pagination li {
+    padding: 1rem;
+    
+  }
   .pagination > li > a{
-    border: 1px var(--bg-hf-color); 
+    border: 1px var(--link-color); 
     border-radius: 50%;
-    padding: 10px 17px 10px 17px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     outline: none;
     cursor: pointer;
   }
@@ -101,7 +124,7 @@
     outline: none ;
   }
   .pagination > li > a, .pagination > li > span{
-    color: var(--text-color);
+    color: var(--link-color);
   }
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset

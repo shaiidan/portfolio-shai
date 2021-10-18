@@ -1,0 +1,14 @@
+[data-theme="light"] {
+    --bg-body-color: #74D2FF;
+    --link-color: #FCF798;
+    --bg-hf-color: #5CA4CA;
+    --text-color: #E0FFF9;
+    
+}
+
+[data-theme="dark"] { 
+    --bg-body-color: #0A1931;
+    --link-color: #FFC947;
+    --bg-hf-color: #185ADB;
+    --text-color:#EFEFEF ;
+}

@@ -1,4 +1,4 @@
-@import '../../DarkMode.css';
+@import '../../DarkMode/DarkMode.css';
 
 .Home {
   text-align: center;
@@ -12,9 +12,10 @@
   align-items: center;
   justify-content: center;
   color:  var(--text-color);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;;
 }
 .Home-header h1 {
+  color:  var(--link-color);
   font-size:calc(80px + 3vmin);
   font-family: 'Brush Script MT', cursive;
 }
@@ -40,21 +41,33 @@
 
 .About{
   padding-top: 8rem;
+  padding-bottom: 3rem;
   min-height: 80vh;
   background-color:  var(--bg-body-color);
   color:  var(--text-color);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .About-header h1{
+  color: var(--link-color);
   font-size: 50px;
-  text-shadow: 5px 5px 5px var( --bg-hf-color);
+  text-shadow: 3px 3px 3px var( --bg-hf-color);
   font-weight: bold;
 }
 
 .About-body{
   text-align:start;
   font-size: 25px;
-  font-style:italic;
   padding: 0 10% 0 10%;
 }
+
+
+/* Software languages icons  */
+.icons {
+  width: 60%;
+}
+.icons img{
+  margin: 0.5rem;
+}
+
+

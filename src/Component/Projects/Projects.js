@@ -1,12 +1,13 @@
 import React from 'react';
-import Footer from '../Footer';
-import Header from '../Header';
+import Footer from '../Templetes/Footer';
+import Header from '../Templetes/Header';
 import { connect } from 'react-redux';
 import Paginate from 'react-paginate';
 import getAllRepos from './githubAPI';
-import './Projects.css';
 import {AiFillGithub as IconGithub} from 'react-icons/ai'
 import MultiColorProgressBar from './MultiColorProgressBar';
+import './Projects.css';
+
 
 class Projects extends React.Component{
   constructor(props) {
@@ -39,23 +40,21 @@ class Projects extends React.Component{
     const postRepos = slice.map(function(repo, index) {
       return ( 
         <>
-      <div className='repo' key={index}  >
-         <div className='repo-header'>
-            <h4>{repo.repo_name}</h4>
-         </div>
-         <div className='repo-body'>
-            <p>{repo.description}</p>
-            <div className='repo-languages'>
-              <MultiColorProgressBar readings={repo.languages} />
-            </div>
-            <div className='repo-link'>
-              <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
-            </div>
-            
-         </div>        
-      </div>
-      <br/>
-      </>
+          <div className='repo' key={index}  >
+             <div className='repo-header'>
+                <h4>{repo.repo_name}</h4>
+             </div>
+             <div className='repo-body'>
+                <p>{repo.description}</p>
+                <div className='repo-languages'>
+                    <MultiColorProgressBar readings={repo.languages} />
+                </div>
+                <div className='repo-link'>
+                    <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
+                </div>
+             </div>        
+          </div>
+       </>
       );
     });
     
@@ -88,8 +87,8 @@ class Projects extends React.Component{
                 <h1>My projects</h1>
               {this.state.postRepos !== undefined && this.state.postRepos !== null && this.state.postRepos.length !== 0 ?
                 <div className="Pages">
-                {this.state.postRepos}
-                <Paginate
+                  <div className='repos'>{this.state.postRepos} </div>
+                  <Paginate
                     previousLabel={"<"}
                     nextLabel={">"}
                     breakLabel={"..."}
