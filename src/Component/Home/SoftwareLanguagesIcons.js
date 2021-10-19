@@ -59,7 +59,14 @@ const SoftwareLanguagesIcons = (props) =>{
             color: BG_COLOR,
             logo:'visual-studio-code',
             logoColor: '007ACC'
+        },
+        {
+            label:'Android Studio',
+            color: BG_COLOR,
+            logo:'Android Studio',
+            logoColor: '3DDC84'
         }
+
     ];
 
     return (

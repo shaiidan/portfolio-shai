@@ -6,6 +6,7 @@ import Paginate from 'react-paginate';
 import getAllRepos from './githubAPI';
 import {AiFillGithub as IconGithub} from 'react-icons/ai'
 import MultiColorProgressBar from './MultiColorProgressBar';
+import { Spinner } from 'react-bootstrap';
 import './Projects.css';
 
 
@@ -101,7 +102,7 @@ class Projects extends React.Component{
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"} />
                 </div>
-                : <div> Loading....</div> 
+                : <div className='loading'><Spinner animation="border" /></div> 
               }
               
             </div>
