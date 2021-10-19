@@ -78,12 +78,6 @@
   align-items: center;
 }
 
-.repo-link {
-  display: flex;
-  justify-content: space-around;
-
-}
-
 .repo-link button {
   width: 50%;
   margin-bottom: 1rem;

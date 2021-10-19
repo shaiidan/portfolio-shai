@@ -50,7 +50,8 @@ class Projects extends React.Component{
                 </div>
              </div>
              <div className='repo-link'>
-                    <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
+                    <a href={repo.html_url} target="_blank" rel="noreferrer">
+                    <button><IconGithub size={'30px'} className="repo-icon"/></button></a>
              </div>        
           </div>
       );
