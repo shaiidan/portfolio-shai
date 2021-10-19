@@ -25,7 +25,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10%;
+  margin-bottom: 30vmin;
+  color: var(--bg-hf-color);
 }
 
 .Pages{
@@ -47,17 +48,15 @@
 .repo{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin: 1rem;
+  justify-content: space-between;
   text-align: center;
   min-width: 70vmin;
   max-width: 70vmin;
   border-radius: 5px;
   box-shadow: 0 2px 3px 0 var( --bg-hf-color);
-  transition: 0.3s;
   background-color: var( --bg-hf-color);
   color: var(--text-color);
-  
 }
 
 .repo-header {
@@ -79,20 +78,21 @@
   align-items: center;
 }
 
-.repo-link{
+.repo-link {
   display: flex;
   justify-content: space-around;
+
 }
 
 .repo-link button {
-
   width: 50%;
+  margin-bottom: 1rem;
   border-radius: 1rem;
   background-color: var( --bg-body-color);
 }
+
 .repo-body a {
   color: var( --bg-body-color);
-  
 }
 
 .repo-icon{

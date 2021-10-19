@@ -31,17 +31,15 @@ class Projects extends React.Component{
 
   
   receivedRepos(){
-
     if(this.state.repos === undefined || this.state.repos === null || !Array.isArray(this.state.repos)){
       return;
     }
 
     const slice = this.state.repos.slice(this.state.offset, this.state.offset + this.state.perPage)
     
-    const postRepos = slice.map(function(repo, index) {
+    const postRepos = slice.map(function(repo) {
       return ( 
-        <>
-          <div className='repo' key={index}  >
+          <div className='repo' key={repo.id}  >
              <div className='repo-header'>
                 <h4>{repo.repo_name}</h4>
              </div>
@@ -50,12 +48,11 @@ class Projects extends React.Component{
                 <div className='repo-languages'>
                     <MultiColorProgressBar readings={repo.languages} />
                 </div>
-                <div className='repo-link'>
+             </div>
+             <div className='repo-link'>
                     <button><a href={repo.html_url}><IconGithub size={'30px'} className="repo-icon"/></a></button>
-                </div>
              </div>        
           </div>
-       </>
       );
     });
     

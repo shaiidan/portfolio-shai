@@ -26,9 +26,9 @@ const getAllRepos = async () => {
     if(typeof repos === Error){
       return null; 
     }
-
     for(const repo of repos){
       let repoNew = {
+        id: repo.id,
         repo_name:  repo.name,
         description:  repo.description,
         html_url: repo.html_url,

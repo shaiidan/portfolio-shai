@@ -1,8 +1,8 @@
-import {Navbar, Nav, Container} from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header_Footer.css';
 import DarkModeToggle from "react-dark-mode-toggle";
 import { useSelector, useDispatch } from 'react-redux';
-import {selectIsDarkMode,changeMode} from '../../Store/darkModeSlice'
+import { selectIsDarkMode, changeMode } from '../../Store/darkModeSlice'
 
 const Header = () => {
   

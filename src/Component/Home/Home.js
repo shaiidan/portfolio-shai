@@ -17,13 +17,12 @@ const Home = () =>{
             <h1>Shai Idan</h1>
             <img src="Images/shai-photo.png" className="Home-logo" alt="logo" />
             <p>Software Engineer</p>
-            <div className='Home-link'>
-              <LinksBar isDarkMode={isDarkMode}  size='50px' />
-            </div>
           </header>
-          
-          <About />
+          <div className='Home-link'>
+              <LinksBar isDarkMode={isDarkMode}  size='50px' />
+          </div>
         </div>
+        <About />
       <Footer/>
     </>
     );

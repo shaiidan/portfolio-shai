@@ -16,8 +16,9 @@ const About = () => {
           <p>I completed my bachelor's degree in software engineering. <br/>
             I have a special love for development software and coding. <br/>
             I come with a practical approach. <br/>
-            I learn quickly. <br/> <br/>
-            Knowlange:
+            I learn quickly. <br/> 
+            <br/>
+            <u>Knowlange:</u>
           </p>
           <SoftwareLanguagesIcons isDarkMode={isDarkMode}/>
         </div>

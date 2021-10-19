@@ -1,5 +1,7 @@
 @import '../../DarkMode/DarkMode.css';
 
+/* Header  */
+
 .Header-navbar{
     min-height: 10vh;
     font-size: calc(15px + 1vmin);
@@ -16,8 +18,7 @@ a.nav-link.active  {
     color: var(--link-color) !important;
 }
 
-
-
+/*  Footer  */
 .Footer {
     text-align:center;
     padding-top: 1rem;
@@ -30,3 +31,5 @@ a.nav-link.active  {
 .Footer h3 {
     padding: 0 0 1rem 1rem;
 }
+
+/* Nav mobile  */

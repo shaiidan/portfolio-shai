@@ -12,9 +12,9 @@
 /build
 
 # firebase
-*firebase.json
-*/.firebase
-*/.firebaserc
+/.firebase 
+.firebaserc
+firebase.json
 
 
 # misc

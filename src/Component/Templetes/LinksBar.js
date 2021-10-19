@@ -20,10 +20,10 @@ const LinksBar = (props) => {
                <div data-tip data-for='mail' className='Column'><a  href="mailto:shaiidan@hotmail.com"><AiOutlineMail color={isDarkMode ? darkMode['link']:lightMode['link']} size={size} /></a></div>
                <div data-tip data-for='linkdin' className='Column'><a  href="https://www.linkedin.com/in/shai-idan-9089b6209"><AiOutlineLinkedin color={isDarkMode ? darkMode['link']:lightMode['link']} size={size} /></a></div>
                <div data-tip data-for='github' className='Column'><a  href="https://github.com/shaiidan/"><AiFillGithub color={isDarkMode ? darkMode['link']:lightMode['link']} size={size} /></a></div>
-                <Tooltip backgroundColor={isDarkMode ? darkMode['body']:lightMode['body']} id='cv' place='top' effect='solid'>See my CV</Tooltip>
-                <Tooltip backgroundColor={isDarkMode ? darkMode['body']:lightMode['body']} id='github' place='top' effect='solid'>See my Github</Tooltip>
-                <Tooltip backgroundColor={isDarkMode ? darkMode['body']:lightMode['body']} id='linkdin' place='top' effect='solid'>See my Linkdin</Tooltip>
-                <Tooltip backgroundColor={isDarkMode ? darkMode['body']:lightMode['body']} id='mail' place='top' effect='solid'>Send me an email</Tooltip>
+                <Tooltip textColor={isDarkMode ? darkMode['body']:lightMode['body']} backgroundColor={isDarkMode ? darkMode['link']:lightMode['link']} id='cv' place='top' effect='solid'>See my CV</Tooltip>
+                <Tooltip textColor={isDarkMode ? darkMode['body']:lightMode['body']} backgroundColor={isDarkMode ? darkMode['link']:lightMode['link']} id='github' place='top' effect='solid'>See my Github</Tooltip>
+                <Tooltip textColor={isDarkMode ? darkMode['body']:lightMode['body']} backgroundColor={isDarkMode ? darkMode['link']:lightMode['link']} id='linkdin' place='top' effect='solid'>See my Linkdin</Tooltip>
+                <Tooltip textColor={isDarkMode ? darkMode['body']:lightMode['body']} backgroundColor={isDarkMode ? darkMode['link']:lightMode['link']} id='mail' place='top' effect='solid'>Send me an email</Tooltip>
             </div>
         </>
     );
