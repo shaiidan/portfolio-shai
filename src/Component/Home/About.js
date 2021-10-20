@@ -17,7 +17,7 @@ const About = () => {
           I completed my bachelor's degree in software engineering. <br/> 
           I am friendly, ambitious, and have leadership and management skills. 
           Can manage time in multiple tasks and work under pressure. <br />
-          I learn quickly and can solve problems quickly. <br /> <br/>
+          I learn quickly and can solve problems speedily. <br /> <br/>
             <u>Knowlange:</u>
           </p>
           <SoftwareLanguagesIcons isDarkMode={isDarkMode}/>
