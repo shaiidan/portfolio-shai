@@ -13,11 +13,11 @@ const About = () => {
           <h1>About</h1>
         </div>
         <div className='About-body'>
-          <p>I completed my bachelor's degree in software engineering. <br/>
-            I have a special love for development software and coding. <br/>
-            I come with a practical approach. <br/>
-            I learn quickly. <br/> 
-            <br/>
+          <p>
+          I completed my bachelor's degree in software engineering. <br/> 
+          I am friendly, ambitious, and have leadership and management skills. 
+          Can manage time in multiple tasks and work under pressure. <br />
+          I learn quickly and can solve problems quickly. <br /> <br/>
             <u>Knowlange:</u>
           </p>
           <SoftwareLanguagesIcons isDarkMode={isDarkMode}/>
