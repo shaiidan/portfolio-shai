@@ -92,6 +92,12 @@ const SoftwareLanguagesIcons = (props) =>{
             logoColor: '239120'
         },
         {
+            label:'Git',
+            color: BG_COLOR,
+            logo:'Git',
+            logoColor: 'F05032'
+        },
+        {
             label: 'Visual Studio',
             color: BG_COLOR,
             logo: 'Visual Studio',
